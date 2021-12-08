@@ -1,4 +1,4 @@
-import numpy as np
+import numpy
 from joblib import load
 from flask import Flask, render_template, request
 
@@ -38,7 +38,7 @@ def index():
         dataTest.append(singleData)
 
         # convert dari list ke numpy array
-        dataTest = np.array(dataTest)
+        dataTest = numpy.array(dataTest)
         
         # load file scaler
         # scaler = load('scaler.bin')
