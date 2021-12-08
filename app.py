@@ -26,11 +26,13 @@ def index():
 
         # mendefinisikan list untuk menampung data
         dataTest = []
+        
+        singleData = [x for x in request.form.values()]
 
         # input data
-        for x in range(4):
-            data = request.json[x]
-            singleData.append(float(data))
+        # for x in range(4):
+            # data = request.json[x]
+            # singleData.append(float(data))
 
         # menggabungkan tiap single data ke dalam data test
         # dataTest.append(singleData)
