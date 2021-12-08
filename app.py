@@ -41,8 +41,8 @@ def index():
         dataTest = np.array(dataTest)
         
         # load file scaler
-        scaler = load('scaler.bin')
-        dataTest = scaler.transform(dataTest)
+        # scaler = load('scaler.bin')
+        # dataTest = scaler.transform(dataTest)
         
         return render_template('index.html', prediction = dataTest)
 
