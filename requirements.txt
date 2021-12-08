@@ -1,5 +1,1 @@
-flask
-gunicorn
-pillow
-numpy
-joblib
+
