@@ -21,8 +21,24 @@ def HasilKlasifikasi(hasil):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if (request.method == 'POST'):
+        # mendefinisikan list untuk menampung data yang akan diinput user
+        singleData = []
+
+        # mendefinisikan list untuk menampung data
+        dataTest = []
+
+        # input data
+        for x in range(4):
+            data = request.json[x]
+            singleData.append(float(data))
+
+        # menggabungkan tiap single data ke dalam data test
+        dataTest.append(singleData)
+
+        # convert dari list ke numpy array
+        dataTest = np.array(dataTest)
         
-        return render_template('index.html', prediction = 'ada post loh')
+        return render_template('index.html', prediction = dataTest)
 
     return render_template('index.html')
 
