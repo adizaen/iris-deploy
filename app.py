@@ -33,12 +33,12 @@ def index():
             singleData.append(float(data))
 
         # menggabungkan tiap single data ke dalam data test
-        dataTest.append(singleData)
+        # dataTest.append(singleData)
 
         # convert dari list ke numpy array
-        dataTest = np.array(dataTest)
+        # dataTest = np.array(dataTest)
         
-        return render_template('index.html', prediction = dataTest)
+        return render_template('index.html', prediction = singleData)
 
     return render_template('index.html')
 
