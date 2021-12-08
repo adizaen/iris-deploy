@@ -46,7 +46,7 @@ def index():
         # melakukan prediksi data baru
         prediksi = int(model.predict(dataTest))
         
-        return render_template('index.html', prediction = HasilKlasifikasi(prediksi))
+        return render_template('index.html', prediction = prediksi)
 
     return render_template('index.html')
 
