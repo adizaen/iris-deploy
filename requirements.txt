@@ -1,5 +1,5 @@
-numpy==1.19.2
-flask==1.1.2
+flask
 gunicorn
 pillow
-joblib==0.17.0
+numpy
+joblib
