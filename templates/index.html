@@ -12,7 +12,7 @@
 <body>
     <section class="flex justify-center items-center w-screen h-screen bg-green-300">
         <main class="flex flex-col justify-center items-center p-16 bg-white rounded-lg">
-            <h1 class="text-3xl text-bold">Klasifikasi IRIS</h1>
+            <h1 class="text-3xl text-bold mb-4">Klasifikasi IRIS</h1>
 
             <form method="post" enctype="multipart/form-data" class="flex flex-col">
                 <label for="sepal-length" class="mb-4">Sepal Length</label>
@@ -26,8 +26,8 @@
                 <button type="submit " class="p-4 bg-indigo-500 text-white rounded-md ">
                     Cek IRIS
                 </button> {% if prediction %}
-                <p class="mb-8">
-                    Hasil Prediksi: {{prediction}}
+                <p class="text-bold mt-4 mb-8">
+                    Prediksi: {{prediction}}
                 </p>
                 {% endif %}
             </form>
