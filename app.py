@@ -1,6 +1,6 @@
+import numpy as np
 from joblib import load
 from flask import Flask, render_template, request
-import numpy as np
 
 app = Flask(__name__)
 
@@ -38,15 +38,13 @@ def index():
         dataTest.append(singleData)
 
         # convert dari list ke numpy array
-        data = [[1.5, 3.6, 2, 3]]
-        data = np.array(data)
-#         dataTest = np.array(dataTest)
+        dataTest = np.array(dataTest)
         
         # load file scaler
         # scaler = load('scaler.bin')
         # dataTest = scaler.transform(dataTest)
         
-        return render_template('index.html', prediction = data)
+        return render_template('index.html', prediction = dataTest)
 
     return render_template('index.html')
 
