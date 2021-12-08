@@ -31,7 +31,7 @@ def index():
 
         # input data
         for x in range(4):
-            data = singleData[x]
+            data = dataForm[x]
             singleData.append(float(data))
 
         # menggabungkan tiap single data ke dalam data test
