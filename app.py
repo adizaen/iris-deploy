@@ -38,13 +38,14 @@ def index():
         dataTest.append(singleData)
 
         # convert dari list ke numpy array
-        dataTest = np.array(dataTest)
+#         dataTest = np.array(dataTest)
+        data = np.round(0.5)
         
         # load file scaler
         # scaler = load('scaler.bin')
         # dataTest = scaler.transform(dataTest)
         
-        return render_template('index.html', prediction = dataTest)
+        return render_template('index.html', prediction = data)
 
     return render_template('index.html')
 
