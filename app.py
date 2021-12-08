@@ -27,12 +27,7 @@ def index():
         # mendefinisikan list untuk menampung data
         dataTest = []
 
-        # perulangan untuk memsukan data
-        # angka 4 -> jumlah kolom
-        for x in range(4):
-            data = request.json[x]
-            data = float(data)
-            singleData.append(data)
+        singleData = [x for x in request.form.values()]
 
         # menggabungkan tiap single data ke dalam data test
         dataTest.append(singleData)
@@ -50,9 +45,8 @@ def index():
 
         # melakukan prediksi data baru
         prediksi = int(model.predict(dataTest))
-        keterangan = HasilKlasifikasi(prediksi)
         
-        return render_template('index.html', prediction = 'TEST')
+        return render_template('index.html', prediction = HasilKlasifikasi(prediksi))
 
     return render_template('index.html')
 
