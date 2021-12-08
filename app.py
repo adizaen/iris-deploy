@@ -52,7 +52,7 @@ def index():
         prediksi = int(model.predict(dataTest))
         keterangan = HasilKlasifikasi(prediksi)
         
-        return render_template('index.html', prediction = keterangan)
+        return render_template('index.html', prediction = 'TEST')
 
     return render_template('index.html')
 
