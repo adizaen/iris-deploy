@@ -4,10 +4,6 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# load eksternal model
-filename = 'model.sav'
-model = load(filename)
-
 # definisi hasil klasifikasi
 def HasilKlasifikasi(hasil):
     jenisIris = None
@@ -21,15 +17,9 @@ def HasilKlasifikasi(hasil):
     
     return jenisIris
 
-# route untuk menampilkan halaman awal (index.html)
-@app.route('/')
-def home():
-    return render_template('index.html')
-
 # route tampilan awal
-@app.route('/getResult', methods=['POST'])
-def getResult():
-
+@app.route('/', methods=['GET', 'POST'])
+def index():
     if (request.method == 'POST'):
         # mendefinisikan list untuk menampung data yang akan diinput user
         singleData = []
@@ -37,10 +27,7 @@ def getResult():
         # mendefinisikan list untuk menampung data
         dataTest = []
 
-        # input data
-        for x in range(4):
-            data = request.json[x]
-            singleData.append(float(data))
+        singleData = [x for x in request.form.values()]
 
         # menggabungkan tiap single data ke dalam data test
         dataTest.append(singleData)
@@ -52,10 +39,16 @@ def getResult():
         scaler = load('scaler.bin')
         dataTest = scaler.transform(dataTest)
 
+        # load eksternal model
+        filename = 'model.sav'
+        model = load(filename)
+
         # melakukan prediksi data baru
         prediksi = int(model.predict(dataTest))
         
-        return render_template('index.html', prediction = HasilKlasifikasi(prediksi))
+        return render_template('index.html', prediction = prediksi)
+
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
