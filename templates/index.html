@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Klasifikasi IRIS</title>
+</head>
+
+<body>
+    <section class="flex justify-center items-center w-screen h-screen bg-green-300">
+        <main class="flex flex-col justify-center items-center p-16 bg-white rounded-lg">
+            <h1 class="text-3xl text-bold">Klasifikasi IRIS</h1>
+
+            <form method="post" enctype="multipart/form-data" class="flex flex-col">
+                <label for="sepal-length" class="mb-4">Sepal Length</label>
+                <input type="text" name="sepal-length" class=" mb-4 p-4 border-2 border-gray-100 rounded-md" autofocus />
+                <label for="sepal-witdh" class="mb-4">Sepal Width</label>
+                <input type="text" name="sepal-witdh" class=" mb-4 p-4 border-2 border-gray-100 rounded-md" />
+                <label for="petal-length" class="mb-4">Petal Length</label>
+                <input type="text" name="petal-length" class=" mb-4 p-4 border-2 border-gray-100 rounded-md" />
+                <label for="petal-width" class="mb-4">Petal Width</label>
+                <input type="text" name="petal-width" class=" mb-4 p-4 border-2 border-gray-100 rounded-md" />
+                <button type="submit " class="p-4 bg-indigo-500 text-white rounded-md ">
+                    Cek IRIS
+                </button> {% if prediction %}
+                <p class="mb-8">
+                    Hasil Prediksi: {{prediction}}
+                </p>
+                {% endif %}
+            </form>
+        </main>
+    </section>
+</body>
+
+</html>
