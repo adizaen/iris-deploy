@@ -42,12 +42,12 @@ def index():
         # dataTest = pd.DataFrame(dataTest)
         
         # load file scaler
-        scaler = load('scaler.bin')
+        # scaler = load('scaler.bin')
         # dataTest = scaler.transform(dataTest)
 
         # load eksternal model
-        filename = 'model.sav'
-        model = load(filename)
+        # filename = 'model.sav'
+        # model = load(filename)
 
         # melakukan prediksi data baru
         # prediksi = int(model.predict(dataTest))
