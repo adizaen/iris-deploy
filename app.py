@@ -38,14 +38,20 @@ def index():
         dataTest.append(singleData)
 
         # convert dari list ke numpy array
-#         dataTest = np.array(dataTest)
-        data = np.round(0.5)
+        dataTest = np.array(dataTest)
         
         # load file scaler
-        # scaler = load('scaler.bin')
-        # dataTest = scaler.transform(dataTest)
+        scaler = load('scaler.bin')
+        dataTest = scaler.transform(dataTest)
+
+        # load eksternal model
+        filename = 'model.sav'
+        model = load(filename)
+
+        # melakukan prediksi data baru
+        prediksi = int(model.predict(dataTest))
         
-        return render_template('index.html', prediction = data)
+        return render_template('index.html', prediction = HasilKlasifikasi(prediksi))
 
     return render_template('index.html')
 
