@@ -1,5 +1,7 @@
 flask
+tensorflow-cpu
 gunicorn
 pillow
-pandas
+numpy
 joblib
+pandas
