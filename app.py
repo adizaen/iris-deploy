@@ -1,4 +1,4 @@
-import numpy as np
+import pandas as pd
 from joblib import load
 from flask import Flask, render_template, request
 
@@ -37,8 +37,8 @@ def index():
         # menggabungkan tiap single data ke dalam data test
         dataTest.append(singleData)
 
-        # convert dari list ke numpy array
-        dataTest = np.array(dataTest)
+        # convert dari list ke pandas dataframe
+        dataTest = pd.DataFrame(dataTest)
         
         # load file scaler
         scaler = load('scaler.bin')
