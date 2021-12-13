@@ -1,5 +1,4 @@
 import pandas as pd
-import os
 from joblib import load
 from flask import Flask, render_template, request
 
