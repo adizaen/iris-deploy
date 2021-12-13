@@ -38,20 +38,20 @@ def index():
         dataTest.append(singleData)
 
         # convert dari list ke pandas dataframe
-        # dataTest = pd.DataFrame(dataTest)
+        dataTest = pd.DataFrame(dataTest)
         
         # load file scaler
-        # scaler = load('scaler.bin')
-        # dataTest = scaler.transform(dataTest)
+        scaler = load('scaler.bin')
+        dataTest = scaler.transform(dataTest)
 
         # load eksternal model
-        # filename = 'model.sav'
-        # model = load(filename)
+        filename = 'model.sav'
+        model = load(filename)
 
         # melakukan prediksi data baru
-        # prediksi = int(model.predict(dataTest))
+        prediksi = int(model.predict(dataTest))
         
-        return render_template('index.html', prediction = dataTest)
+        return render_template('index.html', prediction = HasilKlasifikasi(prediksi))
 
     return render_template('index.html')
 
